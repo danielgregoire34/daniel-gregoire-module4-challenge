@@ -1,5 +1,6 @@
-header{
+.quizstart{
     padding: 100px;
+    text-align: center;
 }
 
 h1 {
@@ -16,13 +17,36 @@ p{
     font-weight: bold;
 }
 
-.quizbutton{
+
+.button {
+    border: none;
     color: white;
-    background-color: red;
-    display: inline-block;
-    width: 200px;
-    font-size: 30px;
+    padding: 15px 32px;
     text-align: center;
-    padding: 20px;
-    margin: 5px;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: relative;
 }
+
+.button1 {background-color: red;} 
+
+.button2 {
+    background-color: red;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 20px;
+    text-align: center;
+    margin: 4px 600px;
+} 
+.button3 {background-color: red;} 
+
+.section1{
+    padding: 100px;
+    text-align: center;
+    display: none;
+}
+
+
