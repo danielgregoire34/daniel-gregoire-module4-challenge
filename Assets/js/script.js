@@ -1,15 +1,42 @@
 var count = 0;
-const button = document.getElementById("ans1");
-const button2 = document.getElementById("ans2");
-const textHolder = document.getElementById("myText");
+button = document.getElementById("ans1");
+button2 = document.getElementById("ans2");
+textHolder = document.getElementById("myText");
 
 textHolder.innerHTML = count;
 
-function myFunction() {
-    //var thefinalScore = 0;
-    //console.log("its working");
-    //document.getElementById("myText").innerHTML = thefinalScore;
+
+
+// Selects element by class
+var timeEl = document.querySelector(".time");
+
+// Selects element by id
+var mainEl = document.getElementById("main");
+
+var secondsLeft = 3;
+
+function setTime() {
+  // Sets interval in variable
+var timerInterval = setInterval(function() {
+    secondsLeft--;
+    timeEl.textContent =  "Time: " + secondsLeft ;
+
+    if(secondsLeft === 0) {
+        var startx = document.getElementById("general");        
+        if (startx.style.display === "none") {
+            startx.style.display = "block";
+        } else {
+            startx.style.display = "none";
+        }
+        clearInterval(timerInterval);
+
+        finalScore();
+    
     }
+}, 1000);
+}
+
+
 
 function hideSection() {
     var startx = document.getElementById("quizhidden");
@@ -25,6 +52,7 @@ function hideSection() {
 function firstSection(){
     var firstx = document.getElementById("firsthidden");
     firstx.style.display ="block";
+    setTime();
 }
 function firsthideSection(){
     var startx = document.getElementById("firsthidden");
@@ -168,5 +196,6 @@ function fifthhideSectionAdding(){
 function finalScore(){
     var firstx = document.getElementById("finalscore");
     firstx.style.display ="block";
-    myFunction.thefinalScore = count;
+    textHolder = count;
+    timeEl.textContent = " ";
 }
