@@ -9,10 +9,8 @@ var timer = document.querySelector(".time");
 var main = document.getElementById("main");
 var secondsLeft = 60;
 
-
 function setTime() {
 var timerInterval = setInterval(function() {
-    var stopTimer = false;
     secondsLeft--;
     timer.textContent =  "Time: " + secondsLeft ;
 
@@ -203,6 +201,9 @@ var saveButton = document.getElementById("save");
 var userName = document.getElementById("username");
 
 var userhighscore = document.getElementById("userhighscore");
+
+
+
 
 saveButton.addEventListener("click", function(event){
     event.preventDefault();
