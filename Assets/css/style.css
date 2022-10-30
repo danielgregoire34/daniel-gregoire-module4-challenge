@@ -39,7 +39,8 @@ p{
     flex-direction: column;
     padding-top: 20px;
     text-align: center;
-    margin: 4px 600px;
+    margin: 14px 450px;
+    width: 30%;
 } 
 .button3 {background-color: red;} 
 

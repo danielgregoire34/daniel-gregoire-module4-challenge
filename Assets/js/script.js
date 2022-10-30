@@ -3,23 +3,17 @@ button = document.getElementById("ans1");
 button2 = document.getElementById("ans2");
 textHolder = document.getElementById("myText");
 
-textHolder.innerHTML = count;
 
+var timer = document.querySelector(".time");
+var main = document.getElementById("main");
+var secondsLeft = 60;
 
-
-// Selects element by class
-var timeEl = document.querySelector(".time");
-
-// Selects element by id
-var mainEl = document.getElementById("main");
-
-var secondsLeft = 3;
 
 function setTime() {
-  // Sets interval in variable
 var timerInterval = setInterval(function() {
+    var stopTimer = false;
     secondsLeft--;
-    timeEl.textContent =  "Time: " + secondsLeft ;
+    timer.textContent =  "Time: " + secondsLeft ;
 
     if(secondsLeft === 0) {
         var startx = document.getElementById("general");        
@@ -33,9 +27,9 @@ var timerInterval = setInterval(function() {
         finalScore();
     
     }
+
 }, 1000);
 }
-
 
 
 function hideSection() {
@@ -62,7 +56,8 @@ function firsthideSection(){
         startx.style.display = "none";
     }
     secondSection();
-    textHolder.innerHTML = count--;
+    count--;
+    textHolder.textContent = count;
 }
 function firsthideSectionAdding(){
     var startx = document.getElementById("firsthidden");
@@ -72,8 +67,8 @@ function firsthideSectionAdding(){
         startx.style.display = "none";
     }
     secondSection();
-    textHolder.innerHTML = count++;
-    console.log("working" + count);
+    count++;
+    textHolder.textContent = count;
 }
 
 
@@ -90,7 +85,8 @@ function secondhideSection(){
         startx.style.display = "none";
     }
     thirdSection();
-    textHolder.innerHTML = count--;
+    count--;
+    textHolder.textContent = count;
 }
 function secondhideSectionAdding(){
     var startx = document.getElementById("secondhidden");
@@ -100,8 +96,8 @@ function secondhideSectionAdding(){
         startx.style.display = "none";
     }
     thirdSection();
-    textHolder.innerHTML = count++;
-    console.log("working" + count);
+    count++;
+    textHolder.textContent = count;
 }
 
 
@@ -118,7 +114,8 @@ function thirdhideSection(){
         startx.style.display = "none";
     }
     fourthSection();
-    textHolder.innerHTML = count--;
+    count--;
+    textHolder.textContent = count;
 }
 function thirdhideSectionAdding(){
     var startx = document.getElementById("thirdhidden");
@@ -128,8 +125,8 @@ function thirdhideSectionAdding(){
         startx.style.display = "none";
     }
     fourthSection();
-    textHolder.innerHTML = count++;
-    console.log("working" + count);
+    count++;
+    textHolder.textContent = count;
 }
 
 
@@ -147,7 +144,8 @@ function fourthhideSection(){
         startx.style.display = "none";
     }
     fifthSection();
-    textHolder.innerHTML = count--;
+    count--;
+    textHolder.textContent = count;
 }
 function fourthhideSectionAdding(){
     var startx = document.getElementById("fourthhidden");
@@ -157,8 +155,8 @@ function fourthhideSectionAdding(){
         startx.style.display = "none";
     }
     fifthSection();
-    textHolder.innerHTML = count++;
-    console.log("working" + count);
+    count++;
+    textHolder.textContent = count;
 }
 
 
@@ -175,7 +173,8 @@ function fifthhideSection(){
         startx.style.display = "none";
     }
     finalScore();
-    textHolder.innerHTML = count--;
+    count--;
+    textHolder.textContent = count;
 }
 function fifthhideSectionAdding(){
     var startx = document.getElementById("fifthhidden");
@@ -184,18 +183,57 @@ function fifthhideSectionAdding(){
     } else {
         startx.style.display = "none";
     }
-    textHolder.innerHTML = count++;
-    console.log("working" + count);
+    count++;
+    textHolder.textContent = count;
     finalScore();   
 }
 
-
-
-
-
+//Final Score Section
 function finalScore(){
     var firstx = document.getElementById("finalscore");
     firstx.style.display ="block";
     textHolder = count;
-    timeEl.textContent = " ";
+    timer.textContent = " ";
+    
 }
+
+//High Score Section
+var saveButton = document.getElementById("save");
+var userName = document.getElementById("username");
+
+var userhighscore = document.getElementById("userhighscore");
+
+saveButton.addEventListener("click", function(event){
+    event.preventDefault();
+    userScoreDisplay();
+    saveLastScore();
+
+});
+
+function saveLastScore() {
+var studentScores = {
+    textHolder: textHolder.value,
+    userName: userName.value.trim()
+};
+localStorage.setItem("studentScores", JSON.stringify(studentScores));
+}
+
+
+function userScoreDisplay(){
+    var studentScore = JSON.parse(localStorage.getItem("studentScores"));
+
+    textHolder.textContent;
+
+    if(studentScore !== null){
+        document.getElementById("userhighscore").innerHTML = studentScore.userName
+    }else{
+        return;
+    }
+    
+}
+
+function init() {
+    userScoreDisplay();
+}
+init();
+
