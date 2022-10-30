@@ -1,5 +1,4 @@
-# Coding JavaScript Read Me
-
+# Javascipt Quiz
 
 ## HTML
 I divided the project into sections for the each question and also had a section for the final score and start page

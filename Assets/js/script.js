@@ -4,6 +4,7 @@ button2 = document.getElementById("ans2");
 textHolder = document.getElementById("myText");
 
 
+var timeID = document.getElementById("timeID");
 var timer = document.querySelector(".time");
 var main = document.getElementById("main");
 var secondsLeft = 60;
@@ -194,7 +195,7 @@ function finalScore(){
     firstx.style.display ="block";
     textHolder = count;
     timer.textContent = " ";
-    
+    timeID.style.display = "none";
 }
 
 //High Score Section
